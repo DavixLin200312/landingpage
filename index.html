@@ -2,425 +2,20 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8" />
-    <title>京都五日慢旅行｜Travel Landing Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="京都五日慢旅行：清水寺、嵐山竹林、伏見稻荷大社，附行程規劃與報名資訊。" />
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-            background-color: #0b1120;
-            color: #e5e7eb;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            background-image: linear-gradient(
-                    rgba(15, 23, 42, 0.75),
-                    rgba(15, 23, 42, 0.9)
-                ),
-                url("https://images.pexels.com/photos/573552/pexels-photo-573552.jpeg?auto=compress&cs=tinysrgb&w=1600");
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 1.5rem;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: 0.04em;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.25rem;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a {
-            opacity: 0.85;
-        }
-
-        .nav-links a:hover {
-            opacity: 1;
-        }
-
-        .hero-content {
-            flex: 1;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 3fr 2fr;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            border-radius: 9999px;
-            padding: 0.25rem 0.75rem;
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(148, 163, 184, 0.4);
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .badge-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 9999px;
-            background: #f97316;
-        }
-
-        .hero-title {
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        .hero-title span {
-            color: #fbbf24;
-        }
-
-        .hero-subtitle {
-            font-size: 1rem;
-            color: #cbd5f5;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1.75rem;
-        }
-
-        .btn-primary,
-        .btn-secondary {
-            border-radius: 9999px;
-            padding: 0.7rem 1.4rem;
-            font-size: 0.95rem;
-            font-weight: 500;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.15s ease, box-shadow 0.15s ease,
-                background 0.15s ease;
-        }
-
-        .btn-primary {
-            background: linear-gradient(90deg, #f97316, #fbbf24);
-            color: #0b1120;
-            box-shadow: 0 10px 25px rgba(248, 181, 55, 0.35);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 14px 30px rgba(248, 181, 55, 0.45);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 1px solid rgba(148, 163, 184, 0.7);
-            color: #e5e7eb;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(15, 23, 42, 0.9);
-        }
-
-        .hero-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            font-size: 0.85rem;
-            color: #9ca3af;
-        }
-
-        .hero-meta span {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-        }
-
-        .hero-card {
-            background: rgba(15, 23, 42, 0.92);
-            border-radius: 1.2rem;
-            padding: 1.5rem;
-            border: 1px solid rgba(148, 163, 184, 0.4);
-            backdrop-filter: blur(14px);
-        }
-
-        .hero-card h3 {
-            font-size: 1rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .hero-card p {
-            font-size: 0.85rem;
-            color: #9ca3af;
-            margin-bottom: 1rem;
-        }
-
-        .hero-taglist {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .hero-tag {
-            font-size: 0.75rem;
-            padding: 0.3rem 0.7rem;
-            border-radius: 9999px;
-            background: rgba(30, 64, 175, 0.6);
-        }
-
-        /* Sections */
-        section {
-            padding: 3.5rem 1.5rem;
-        }
-
-        .section-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 1.6rem;
-            margin-bottom: 0.7rem;
-        }
-
-        .section-subtitle {
-            font-size: 0.95rem;
-            color: #9ca3af;
-            margin-bottom: 2rem;
-        }
-
-        /* Highlights */
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1.75rem;
-        }
-
-        .card {
-            background: radial-gradient(circle at top left, #111827, #020617);
-            border-radius: 1.1rem;
-            border: 1px solid rgba(55, 65, 81, 0.9);
-            padding: 1.4rem;
-            font-size: 0.9rem;
-        }
-
-        .card h3 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            color: #e5e7eb;
-        }
-
-        .card p {
-            color: #9ca3af;
-        }
-
-        /* Itinerary */
-        .timeline {
-            border-left: 2px solid rgba(75, 85, 99, 0.9);
-            margin-left: 0.7rem;
-            padding-left: 1.7rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            font-size: 0.9rem;
-        }
-
-        .timeline-item {
-            position: relative;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: -2.05rem;
-            top: 0.2rem;
-            width: 10px;
-            height: 10px;
-            border-radius: 9999px;
-            background: #fbbf24;
-            box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.18);
-        }
-
-        .timeline-title {
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-
-        .timeline-tag {
-            font-size: 0.75rem;
-            color: #fbbf24;
-            margin-left: 0.4rem;
-        }
-
-        .timeline-desc {
-            color: #9ca3af;
-        }
-
-        /* Pricing / CTA */
-        .cta-grid {
-            display: grid;
-            grid-template-columns: 3fr 2fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .price-tag {
-            font-size: 1.9rem;
-            font-weight: 700;
-            color: #fbbf24;
-            margin-bottom: 0.4rem;
-        }
-
-        .price-note {
-            font-size: 0.85rem;
-            color: #9ca3af;
-            margin-bottom: 1rem;
-        }
-
-        .bullet-list {
-            list-style: none;
-            font-size: 0.9rem;
-            color: #9ca3af;
-            margin-bottom: 1.4rem;
-        }
-
-        .bullet-list li {
-            margin-bottom: 0.4rem;
-        }
-
-        .bullet-list li::before {
-            content: "• ";
-            color: #fbbf24;
-        }
-
-        .cta-box {
-            background: radial-gradient(circle at top, #1e293b, #020617);
-            padding: 1.4rem;
-            border-radius: 1rem;
-            border: 1px solid rgba(75, 85, 99, 0.95);
-            font-size: 0.9rem;
-        }
-
-        .cta-box h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .cta-box p {
-            color: #9ca3af;
-            margin-bottom: 0.8rem;
-        }
-
-        .cta-box label {
-            display: block;
-            margin-bottom: 0.3rem;
-            font-size: 0.8rem;
-            color: #d1d5db;
-        }
-
-        .cta-input {
-            width: 100%;
-            padding: 0.6rem 0.7rem;
-            border-radius: 0.7rem;
-            border: 1px solid rgba(75, 85, 99, 0.9);
-            background: rgba(15, 23, 42, 0.9);
-            color: #e5e7eb;
-            margin-bottom: 0.7rem;
-            font-size: 0.85rem;
-        }
-
-        .cta-input:focus {
-            outline: none;
-            border-color: #fbbf24;
-        }
-
-        .footer {
-            border-top: 1px solid rgba(55, 65, 81, 0.9);
-            padding: 1.2rem 1.5rem 1.8rem;
-            font-size: 0.8rem;
-            color: #6b7280;
-            text-align: center;
-        }
-
-        .footer span {
-            color: #9ca3af;
-        }
-
-        @media (max-width: 900px) {
-            .hero-grid,
-            .highlights-grid,
-            .cta-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                min-height: auto;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            section {
-                padding: 2.4rem 1.2rem;
-            }
-        }
-    </style>
+    <title>探索台灣｜環島慢旅行 Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- HERO -->
-    <header class="hero" id="top">
+    <header class="hero">
         <div class="container">
             <nav class="nav">
-                <div class="logo">KYOTO SLOW TRIP</div>
+                <div class="logo">TAIWAN SLOW TRIP</div>
                 <div class="nav-links">
-                    <a href="#highlights">特色亮點</a>
-                    <a href="#itinerary">行程介紹</a>
-                    <a href="#plan">方案資訊</a>
-                    <a href="#contact">聯絡報名</a>
+                    <a href="index.html" style="color:#fbbf24;">首頁</a>
+                    <a href="itinerary.html">詳細行程</a>
+                    <a href="stories.html">旅人故事</a>
+                    <a href="#contact-section">立即預約</a>
                 </div>
             </nav>
 
@@ -428,44 +23,40 @@
                 <div class="hero-grid">
                     <div>
                         <div class="badge">
-                            <span class="badge-dot"></span>
-                            京都五日四夜 · 小團體 · 慢旅行
+                            <span class="badge-dot"></span> 
+                            2025 春季招募中 · 台灣精緻小團
                         </div>
                         <h1 class="hero-title">
-                            用 <span>五天四夜</span>  
-                            好好認識一次京都。
+                            用 <span>七天六夜</span><br>
+                            重新愛上這座島。
                         </h1>
                         <p class="hero-subtitle">
-                            走進清水寺、嵐山竹林與鴨川河岸，把腳步放慢，留時間給每個轉角的風景。
-                            這不是走馬看花，而是一趟真正「住進」京都的城市旅程。
+                            從台北 101 的繁華夜景，到阿里山的清晨雲海；<br>
+                            從台南的巷弄美食，到花蓮太魯閣的壯闊峽谷。<br>
+                            我們不趕路，只帶你感受最真實的台灣溫度。
                         </p>
                         <div class="hero-actions">
-                            <a href="#contact">
-                                <button class="btn-primary">我要預約名額</button>
-                            </a>
-                            <a href="#itinerary">
-                                <button class="btn-secondary">查看完整行程</button>
-                            </a>
+                            <a href="itinerary.html" class="btn-primary">查看每日行程</a>
+                            <a href="stories.html" class="btn-secondary">看看旅人評價</a>
                         </div>
                         <div class="hero-meta">
-                            <span>✓ 限 10 人內小團</span>
-                            <span>✓ 含機場接送 & 在地導遊</span>
-                            <span>✓ 友善自由活動時間</span>
+                            <span>✓ 12 人精緻小團</span>
+                            <span>✓ 專業攝影隨行</span>
+                            <span>✓ 全程特色住宿</span>
                         </div>
                     </div>
+                    
                     <div>
                         <div class="hero-card">
-                            <h3>本團簡介</h3>
-                            <p>
-                                出發地：台北 / 高雄  
-                                出團日期：每月固定兩梯次  
-                                行程重點：世界文化遺產、京町老街、和菓子體驗、茶屋散策。
-                            </p>
+                            <h3>近期出發梯次</h3>
+                            <p style="margin-bottom: 0.5rem;">04/15 - 04/21 (剩餘 2 位)</p>
+                            <p style="color: #fbbf24; margin-bottom: 1rem;">05/01 - 05/07 (熱烈報名中)</p>
+                            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 1rem;">
                             <div class="hero-taglist">
-                                <span class="hero-tag">清水寺夜楓</span>
-                                <span class="hero-tag">嵐山小火車</span>
-                                <span class="hero-tag">伏見稻荷千鳥居</span>
-                                <span class="hero-tag">祇園花街散步</span>
+                                <span class="hero-tag">台北</span>
+                                <span class="hero-tag">日月潭</span>
+                                <span class="hero-tag">阿里山</span>
+                                <span class="hero-tag">花蓮</span>
                             </div>
                         </div>
                     </div>
@@ -474,180 +65,28 @@
         </div>
     </header>
 
-    <!-- HIGHLIGHTS -->
-    <section id="highlights">
-        <div class="section-inner">
-            <h2 class="section-title">為什麼選擇這個行程？</h2>
-            <p class="section-subtitle">
-                我們把熱門景點保留，同時刪掉不必要的購物行程，留更多時間給散步、
-                發呆與拍照。你只需要專心感受京都，其它交給我們。
-            </p>
-
-            <div class="highlights-grid">
-                <div class="card">
-                    <h3>小團出發，節奏自在</h3>
-                    <p>
-                        每團人數控制在 10 人以內，不趕車、不趕點，  
-                        有足夠時間在鴨川河畔坐著看夕陽，  
-                        或在小巷裡慢慢拍下每一扇老屋木門。
-                    </p>
-                </div>
-                <div class="card">
-                    <h3>精選住宿地點</h3>
-                    <p>
-                        住宿安排在鄰近地鐵或巴士站的旅館，步行即可到商店街。  
-                        一晚安排和式榻榻米體驗，搭配日式早餐，感受在地生活。
-                    </p>
-                </div>
-                <div class="card">
-                    <h3>在地導遊帶路</h3>
-                    <p>
-                        導遊常駐關西多年，熟悉隱藏版小店與拍照點。  
-                        想吃拉麵、壽司、甜點，都可以視團員興趣即時調整。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ITINERARY -->
-    <section id="itinerary">
-        <div class="section-inner">
-            <h2 class="section-title">五日行程概覽</h2>
-            <p class="section-subtitle">
-                以下為示意行程，實際會依出發日期、季節與天氣稍作調整，但核心景點與體驗會保留。
-            </p>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-title">
-                        Day 1 · 抵達關西 & 祇園夜景
-                        <span class="timeline-tag">抵達日</span>
+    <section id="contact-section" style="background: #111827;">
+        <div class="section-inner" style="text-align: center;">
+            <h2 class="section-title">準備好出發了嗎？</h2>
+            <p class="section-subtitle">留下 Email，我們將寄送完整的 PDF 行程表與早鳥優惠資訊給你。</p>
+            
+            <div class="cta-box" style="max-width: 500px; margin: 0 auto;">
+                <form onsubmit="alert('感謝填寫！這是一個靜態示範網站。'); return false;">
+                    <div style="text-align: left;">
+                        <label>你的稱呼</label>
+                        <input type="text" class="cta-input" placeholder="例：王小明" required>
+                        
+                        <label>電子信箱</label>
+                        <input type="email" class="cta-input" placeholder="name@example.com" required>
                     </div>
-                    <p class="timeline-desc">
-                        抵達關西機場 → 專車接送至京都 → 飯店 Check-in → 傍晚前往祇園、
-                        八坂神社周邊散步，熟悉環境，適應氣候與時差。
-                    </p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-title">
-                        Day 2 · 清水寺與東山老街
-                        <span class="timeline-tag">世界遺產</span>
-                    </div>
-                    <p class="timeline-desc">
-                        造訪清水寺、三年坂、二年坂 → 體驗和服 / 浴衣（自選）→  
-                        下午自由活動，可依興趣前往錦市場或河原町商圈。
-                    </p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-title">
-                        Day 3 · 嵐山竹林 & 小火車
-                        <span class="timeline-tag">自然風景</span>
-                    </div>
-                    <p class="timeline-desc">
-                        搭乘嵐山小火車欣賞保津川景色 → 竹林小徑散步 → 渡月橋 →  
-                        下午前往嵯峨一帶咖啡館或甜點店，享受屬於自己的京都午後。
-                    </p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-title">
-                        Day 4 · 伏見稻荷千鳥居 & 宇治抹茶
-                        <span class="timeline-tag">文化體驗</span>
-                    </div>
-                    <p class="timeline-desc">
-                        上午參拜伏見稻荷大社，走過成千上萬個鳥居 →  
-                        下午前往宇治，參觀抹茶老店，體驗手作抹茶或和菓子課程。
-                    </p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-title">
-                        Day 5 · 自由活動 & 返回台灣
-                        <span class="timeline-tag">返程</span>
-                    </div>
-                    <p class="timeline-desc">
-                        上午自由安排，最後採買伴手禮或再走一次喜歡的街道 →  
-                        下午集合前往機場，準備返程，結束這趟京都慢旅行。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PLAN / CTA -->
-    <section id="plan">
-        <div class="section-inner">
-            <h2 class="section-title">方案與價格</h2>
-            <p class="section-subtitle">
-                價格已包含機票、住宿、部分餐食與主要行程票券，讓你出國不用煩惱細節。
-            </p>
-
-            <div class="cta-grid">
-                <div>
-                    <div class="price-tag">NT$ 45,900 起</div>
-                    <div class="price-note">
-                        參考價格，以實際出發日報價為主。兩人一室，如需單人房可加價。
-                    </div>
-                    <ul class="bullet-list">
-                        <li>台灣出發來回經濟艙機票</li>
-                        <li>京都市區飯店四晚（含一晚和式房）</li>
-                        <li>機場接送、行程中主要交通票券</li>
-                        <li>嵐山小火車、清水寺與伏見稻荷參訪</li>
-                        <li>專業中文導遊帶團 + 自由活動時間安排建議</li>
-                    </ul>
-                    <a href="#contact">
-                        <button class="btn-primary">填寫資料，索取詳細行程表</button>
-                    </a>
-                </div>
-                <div class="cta-box" id="contact">
-                    <h3>留下聯絡方式，我們寄行程 PDF 給你</h3>
-                    <p>
-                        這不是正式報名，只是先讓你了解內容與預估費用。  
-                        專人會透過 Email 或 Line 與你確認細節。
-                    </p>
-                    <form
-                        onsubmit="alert('感謝你的填寫！實際專人聯絡可在正式網站/表單實作。'); return false;"
-                    >
-                        <label for="name">姓名</label>
-                        <input
-                            type="text"
-                            id="name"
-                            class="cta-input"
-                            placeholder="例：林同學"
-                            required
-                        />
-                        <label for="email">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            class="cta-input"
-                            placeholder="例：example@gmail.com"
-                            required
-                        />
-                        <label for="note">想出發的月份（可略填）</label>
-                        <input
-                            type="text"
-                            id="note"
-                            class="cta-input"
-                            placeholder="例：明年三月 或 2026 春假"
-                        />
-                        <button class="btn-primary" type="submit">
-                            送出資料（示意用）
-                        </button>
-                    </form>
-                </div>
+                    <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">索取行程資料</button>
+                </form>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <span>© 2025 Kyoto Slow Trip. Demo Landing Page for GitHub Pages.</span>
-        <br />
-        <span>此頁面僅為示範用靜態網站，你可以依需求修改文字與圖片。</span>
+        <span>© 2025 Taiwan Slow Trip. Images from Unsplash.</span>
     </footer>
 </body>
 </html>
