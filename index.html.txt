@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>My Landing Page</title>
+</head>
+<body>
+    <h1>Hello! 這是我的 Landing Page 🎉</h1>
+    <p>如果你看到這段文字，代表 GitHub Pages 已經成功！</p>
+</body>
+</html>
