@@ -1,11 +1,675 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <title>My Landing Page</title>
+    <meta charset="UTF-8" />
+    <title>探索台灣｜環島慢旅行 Travel Landing Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="探索台灣七日環島慢旅行：台北 101、日月潭、阿里山、台南小吃與花蓮太魯閣，附行程規劃與報名資訊。" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            background-color: #0b1120;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background-image: linear-gradient(
+                    rgba(15, 23, 42, 0.75),
+                    rgba(15, 23, 42, 0.9)
+                ),
+                url("https://images.pexels.com/photos/2403208/pexels-photo-2403208.jpeg?auto=compress&cs=tinysrgb&w=1600");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: 0.04em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            opacity: 0.85;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .hero-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 9999px;
+            background: #22c55e;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title span {
+            color: #fbbf24;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: #cbd5f5;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            border-radius: 9999px;
+            padding: 0.7rem 1.4rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease,
+                background 0.15s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #22c55e, #fbbf24);
+            color: #0b1120;
+            box-shadow: 0 10px 25px rgba(52, 211, 153, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 30px rgba(52, 211, 153, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            color: #e5e7eb;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        .hero-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .hero-card {
+            background: rgba(15, 23, 42, 0.92);
+            border-radius: 1.2rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            backdrop-filter: blur(14px);
+        }
+
+        .hero-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-card p {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 1rem;
+        }
+
+        .hero-taglist {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .hero-tag {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 9999px;
+            background: rgba(22, 163, 74, 0.6);
+        }
+
+        /* Sections */
+        section {
+            padding: 3.5rem 1.5rem;
+        }
+
+        .section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .section-subtitle {
+            font-size: 0.95rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+        }
+
+        /* Highlights */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.75rem;
+        }
+
+        .card {
+            background: radial-gradient(circle at top left, #111827, #020617);
+            border-radius: 1.1rem;
+            border: 1px solid rgba(55, 65, 81, 0.9);
+            padding: 1.4rem;
+            font-size: 0.9rem;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #e5e7eb;
+        }
+
+        .card p {
+            color: #9ca3af;
+        }
+
+        /* Itinerary */
+        .timeline {
+            border-left: 2px solid rgba(75, 85, 99, 0.9);
+            margin-left: 0.7rem;
+            padding-left: 1.7rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2.05rem;
+            top: 0.2rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 9999px;
+            background: #fbbf24;
+            box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.18);
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-tag {
+            font-size: 0.75rem;
+            color: #fbbf24;
+            margin-left: 0.4rem;
+        }
+
+        .timeline-desc {
+            color: #9ca3af;
+        }
+
+        /* Pricing / CTA */
+        .cta-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .price-tag {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 0.4rem;
+        }
+
+        .price-note {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 1rem;
+        }
+
+        .bullet-list {
+            list-style: none;
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-bottom: 1.4rem;
+        }
+
+        .bullet-list li {
+            margin-bottom: 0.4rem;
+        }
+
+        .bullet-list li::before {
+            content: "• ";
+            color: #fbbf24;
+        }
+
+        .cta-box {
+            background: radial-gradient(circle at top, #1e293b, #020617);
+            padding: 1.4rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(75, 85, 99, 0.95);
+            font-size: 0.9rem;
+        }
+
+        .cta-box h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .cta-box p {
+            color: #9ca3af;
+            margin-bottom: 0.8rem;
+        }
+
+        .cta-box label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.8rem;
+            color: #d1d5db;
+        }
+
+        .cta-input {
+            width: 100%;
+            padding: 0.6rem 0.7rem;
+            border-radius: 0.7rem;
+            border: 1px solid rgba(75, 85, 99, 0.9);
+            background: rgba(15, 23, 42, 0.9);
+            color: #e5e7eb;
+            margin-bottom: 0.7rem;
+            font-size: 0.85rem;
+        }
+
+        .cta-input:focus {
+            outline: none;
+            border-color: #fbbf24;
+        }
+
+        .footer {
+            border-top: 1px solid rgba(55, 65, 81, 0.9);
+            padding: 1.2rem 1.5rem 1.8rem;
+            font-size: 0.8rem;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        .footer span {
+            color: #9ca3af;
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid,
+            .highlights-grid,
+            .cta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 2.4rem 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello! 這是我的 Landing Page 🎉</h1>
-    <p>如果你看到這段文字，代表 GitHub Pages 已經成功！</p>
+    <!-- HERO -->
+    <header class="hero" id="top">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">TAIWAN SLOW TRIP</div>
+                <div class="nav-links">
+                    <a href="#highlights">特色亮點</a>
+                    <a href="#itinerary">行程介紹</a>
+                    <a href="#plan">方案資訊</a>
+                    <a href="#contact">聯絡報名</a>
+                </div>
+            </nav>
+
+            <div class="hero-content">
+                <div class="hero-grid">
+                    <div>
+                        <div class="badge">
+                            <span class="badge-dot"></span>
+                            台灣七日六夜 · 環島小團 · 慢旅行
+                        </div>
+                        <h1 class="hero-title">
+                            用 <span>七天六夜</span>  
+                            重新愛上這座島。
+                        </h1>
+                        <p class="hero-subtitle">
+                            從台北 101 到日月潭、阿里山，再到台南小吃與花蓮太魯閣，
+                            把腳步放慢，從海岸線到山林，認識不一樣的台灣風景。
+                        </p>
+                        <div class="hero-actions">
+                            <a href="#contact">
+                                <button class="btn-primary">我要預約名額</button>
+                            </a>
+                            <a href="#itinerary">
+                                <button class="btn-secondary">查看完整行程</button>
+                            </a>
+                        </div>
+                        <div class="hero-meta">
+                            <span>✓ 限 12 人內小團</span>
+                            <span>✓ 含環島交通與住宿</span>
+                            <span>✓ 友善自由活動時間</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="hero-card">
+                            <h3>本團簡介</h3>
+                            <p>
+                                出發地：台北車站  
+                                出團日期：每月固定兩梯次  
+                                行程重點：台北夜景、日月潭、阿里山日出、台南美食、花蓮太魯閣與東海岸。
+                            </p>
+                            <div class="hero-taglist">
+                                <span class="hero-tag">台北 101 夜景</span>
+                                <span class="hero-tag">日月潭環湖</span>
+                                <span class="hero-tag">阿里山小火車</span>
+                                <span class="hero-tag">台南小吃地圖</span>
+                                <span class="hero-tag">花蓮太魯閣步道</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HIGHLIGHTS -->
+    <section id="highlights">
+        <div class="section-inner">
+            <h2 class="section-title">為什麼選擇這個台灣行程？</h2>
+            <p class="section-subtitle">
+                不只是打卡景點，而是把在地文化、美食與風景一起打包。  
+                我們設計的是「真的住進台灣」的七日旅程。
+            </p>
+
+            <div class="highlights-grid">
+                <div class="card">
+                    <h3>北中南東一次走完</h3>
+                    <p>
+                        七天走訪台北、台中、南投、嘉義、台南與花蓮東海岸，  
+                        用最舒服的節奏繞行台灣一圈，看城市，也看山與海。
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>必看日出與湖景</h3>
+                    <p>
+                        阿里山日出＋日月潭湖景雙重安排，  
+                        一次收集台灣經典風景，還有在地人推薦的隱藏拍照點。
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>在地美食帶路人</h3>
+                    <p>
+                        導遊熟門熟路帶你吃台南牛肉湯、花蓮扁食、夜市小吃，  
+                        也會保留時間讓你自己去尋寶，找出心中的 No.1。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ITINERARY -->
+    <section id="itinerary">
+        <div class="section-inner">
+            <h2 class="section-title">七日環島行程概覽</h2>
+            <p class="section-subtitle">
+                以下為示意行程，實際會依出發日期與天氣微調，但核心景點會保留。
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-title">
+                        Day 1 · 台北城市走讀
+                        <span class="timeline-tag">起點</span>
+                    </div>
+                    <p class="timeline-desc">
+                        台北車站集合 → 中正紀念堂 → 西門町 → 夜訪信義商圈與台北 101 外觀，
+                        感受台北白天與夜晚不同表情。
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-title">
+                        Day 2 · 台中 & 日月潭
+                        <span class="timeline-tag">湖景</span>
+                    </div>
+                    <p class="timeline-desc">
+                        前往台中 → 彩虹眷村或審計新村 → 下午抵達日月潭，  
+                        搭乘遊船環湖，入住湖畔附近旅館，晚上自由散步。
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-title">
+                        Day 3 · 阿里山日出
+                        <span class="timeline-tag">山林</span>
+                    </div>
+                    <p class="timeline-desc">
+                        南投前往嘉義 → 阿里山森林遊樂區 → 小火車、姊妹潭、神木步道，  
+                        夜宿山區，隔日清晨看阿里山日出（視氣候狀況）。
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-title">
+                        Day 4 · 台南古都美食
+                        <span class="timeline-tag">美食</span>
+                    </div>
+                    <p class="timeline-desc">
+                        下山後前往台南 → 赤崁樓、孔廟周邊巷弄 →  
+                        自由品嚐牛肉湯、虱目魚、鍋燒意麵與古早味點心，晚上入住台南市區。
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-title">
+                        Day 5 · 花蓮太魯閣
+                        <span class="timeline-tag">峽谷</span>
+                    </div>
+                    <p class="timeline-desc">
+                        從南部北上前往花蓮 → 參觀太魯閣峽谷步道（砂卡礑或燕子口等）→  
+                        住宿花蓮市區，晚上逛東大門夜市。
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-title">
+                        Day 6 · 東海岸 & 太平洋風
+                        <span class="timeline-tag">海景</span>
+                    </div>
+                    <p class="timeline-desc">
+                        沿花東海岸線北上，造訪海岸拍照景點與小漁村咖啡館，  
+                        感受太平洋海風與台灣最美的海岸公路之一。
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-title">
+                        Day 7 · 返回台北 & 自由活動
+                        <span class="timeline-tag">返程</span>
+                    </div>
+                    <p class="timeline-desc">
+                        抵達台北後自由活動，可再逛一趟喜歡的商圈或買伴手禮，  
+                        下午解散，結束這趟七日環島慢旅行。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLAN / CTA -->
+    <section id="plan">
+        <div class="section-inner">
+            <h2 class="section-title">方案與價格</h2>
+            <p class="section-subtitle">
+                價格已包含環島交通、六晚住宿與部分餐食，讓你輕鬆玩遍台灣。
+            </p>
+
+            <div class="cta-grid">
+                <div>
+                    <div class="price-tag">NT$ 32,900 起</div>
+                    <div class="price-note">
+                        參考價格，以實際出發日與人數為主。兩人一室，如需單人房可加價。
+                    </div>
+                    <ul class="bullet-list">
+                        <li>全程環島交通（遊覽車或包車）</li>
+                        <li>六晚旅館（含山區與市區不同風格）</li>
+                        <li>日月潭遊船、阿里山門票與小火車</li>
+                        <li>部分指定餐食（其餘保留自由尋找在地小吃）</li>
+                        <li>中文導遊與隨隊小幫手服務</li>
+                    </ul>
+                    <a href="#contact">
+                        <button class="btn-primary">填寫資料，索取詳細行程表</button>
+                    </a>
+                </div>
+                <div class="cta-box" id="contact">
+                    <h3>留下聯絡方式，我們寄行程 PDF 給你</h3>
+                    <p>
+                        這不是正式報名，只是先讓你了解內容與預估費用。  
+                        專人會透過 Email 或 Line 與你聯繫。
+                    </p>
+                    <form
+                        onsubmit="alert('感謝你的填寫！在真正網站上可以串接後端或表單服務。'); return false;"
+                    >
+                        <label for="name">姓名</label>
+                        <input
+                            type="text"
+                            id="name"
+                            class="cta-input"
+                            placeholder="例：林同學"
+                            required
+                        />
+                        <label for="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            class="cta-input"
+                            placeholder="例：example@gmail.com"
+                            required
+                        />
+                        <label for="note">想出發的季節（可略填）</label>
+                        <input
+                            type="text"
+                            id="note"
+                            class="cta-input"
+                            placeholder="例：暑假、寒假或連假檔期"
+                        />
+                        <button class="btn-primary" type="submit">
+                            送出資料（示意用）
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <span>© 2025 Taiwan Slow Trip. Demo Landing Page for GitHub Pages.</span>
+        <br />
+        <span>此頁面僅為示範用靜態網站，你可以依需求修改文字與圖片。</span>
+    </footer>
 </body>
 </html>
