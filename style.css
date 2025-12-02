@@ -1,0 +1,96 @@
+/* style.css - 網站的外觀設計 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    background-color: #0b1120;
+    color: #e5e7eb;
+    line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; transition: 0.2s; }
+a:hover { color: #fbbf24; }
+
+/* 導覽列與容器 */
+.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; }
+.logo { font-weight: 700; font-size: 1.25rem; letter-spacing: 0.04em; color: #fff; }
+.nav-links { display: flex; gap: 1.5rem; font-size: 0.95rem; }
+.nav-links a { opacity: 0.85; color: #e5e7eb; }
+.nav-links a:hover { opacity: 1; color: #fbbf24; }
+
+/* 頁面標題區 (Sub-page Header) */
+.page-header {
+    background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url("https://images.pexels.com/photos/2403208/pexels-photo-2403208.jpeg?auto=compress&cs=tinysrgb&w=1600");
+    background-size: cover;
+    background-position: center;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.page-title { font-size: 2rem; margin-bottom: 0.5rem; color: #fff; }
+
+/* 按鈕樣式 */
+.btn-primary {
+    border-radius: 9999px; padding: 0.7rem 1.4rem; font-size: 0.95rem; font-weight: 500;
+    border: none; cursor: pointer;
+    background: linear-gradient(90deg, #22c55e, #fbbf24); color: #0b1120;
+    box-shadow: 0 10px 25px rgba(52, 211, 153, 0.35); transition: 0.2s;
+    display: inline-block;
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 30px rgba(52, 211, 153, 0.5); }
+.btn-secondary {
+    border-radius: 9999px; padding: 0.7rem 1.4rem; font-size: 0.95rem; font-weight: 500;
+    border: 1px solid rgba(148, 163, 184, 0.7); background: transparent; color: #e5e7eb; cursor: pointer;
+}
+.btn-secondary:hover { background: rgba(255, 255, 255, 0.1); }
+
+/* 首頁 Hero 區塊 (保留原本樣式) */
+.hero {
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), url("https://images.pexels.com/photos/2403208/pexels-photo-2403208.jpeg?auto=compress&cs=tinysrgb&w=1600");
+    background-size: cover; background-position: center;
+    display: flex; flex-direction: column;
+}
+.hero .nav { padding: 0; margin-bottom: 2rem; } /* 微調首頁 nav */
+.hero-content { flex: 1; display: flex; align-items: center; }
+.hero-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 2.5rem; align-items: center; }
+.hero-title { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; }
+.hero-title span { color: #fbbf24; }
+.hero-subtitle { font-size: 1rem; color: #cbd5f5; margin-bottom: 1.5rem; }
+.hero-actions { display: flex; gap: 1rem; margin-bottom: 1.75rem; }
+.hero-meta { display: flex; gap: 1.5rem; font-size: 0.85rem; color: #9ca3af; }
+.badge { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 9999px; padding: 0.25rem 0.75rem; background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(148, 163, 184, 0.4); font-size: 0.8rem; margin-bottom: 1rem; }
+.badge-dot { width: 8px; height: 8px; border-radius: 9999px; background: #22c55e; }
+.hero-card { background: rgba(15, 23, 42, 0.92); border-radius: 1.2rem; padding: 1.5rem; border: 1px solid rgba(148, 163, 184, 0.4); backdrop-filter: blur(14px); }
+.hero-taglist { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.hero-tag { font-size: 0.75rem; padding: 0.3rem 0.7rem; border-radius: 9999px; background: rgba(22, 163, 74, 0.6); }
+
+/* 通用區塊樣式 */
+section { padding: 3.5rem 1.5rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-title { font-size: 1.6rem; margin-bottom: 0.7rem; color: #fff; }
+.section-subtitle { font-size: 0.95rem; color: #9ca3af; margin-bottom: 2rem; }
+
+/* Grid 系統 */
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+/* 卡片樣式 */
+.card { background: #111827; border-radius: 1rem; border: 1px solid #374151; padding: 1.5rem; overflow: hidden; }
+.card img { width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1rem; }
+.card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #f3f4f6; }
+.card p { color: #9ca3af; font-size: 0.9rem; margin-bottom: 1rem; }
+
+/* 詳細行程列表樣式 */
+.day-card { display: flex; gap: 1.5rem; background: #1e293b; padding: 1.5rem; border-radius: 1rem; margin-bottom: 1.5rem; border: 1px solid #334155; }
+.day-number { font-size: 1.5rem; font-weight: bold; color: #fbbf24; min-width: 60px; }
+.day-content h3 { margin-bottom: 0.5rem; }
+.day-tag { font-size: 0.8rem; background: #374151; padding: 0.2rem 0.5rem; border-radius: 4px; color: #d1d5db; margin-right: 0.5rem; }
+
+/* Footer */
+.footer { border-top: 1px solid #374151; padding: 2rem; text-align: center; color: #6b7280; font-size: 0.8rem; margin-top: 2rem; }
+
+/* RWD */
+@media (max-width: 768px) {
+    .hero-grid, .grid-3, .grid-2, .day-card { grid-template-columns: 1fr; display: grid; }
+    .nav-links { display: none; } /* 手機版暫時隱藏選單 */
+}
